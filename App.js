@@ -1,6 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+
+import Placesnavigator from "./navigation/PlacesNavigator";
 
 export default function App() {
-  return <View></View>;
+  return <Placesnavigator />;
 }
