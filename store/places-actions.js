@@ -22,6 +22,7 @@ export const addPlace = (title, image, location) => {
     }
 
     const address = resData.results[0].formatted_address;
+
     const fileName = image.split("/").pop();
     const newPath = FileSystem.documentDirectory + fileName;
 

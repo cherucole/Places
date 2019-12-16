@@ -1,27 +1,28 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback } from 'react';
 import {
   ScrollView,
   View,
-  Text,
   Button,
-  StyleSheet,
-  TextInput
-} from "react-native";
-import { useDispatch } from "react-redux";
+  Text,
+  TextInput,
+  StyleSheet
+} from 'react-native';
+import { useDispatch } from 'react-redux';
 
-import Colors from "../constants/Colors";
-import * as placesActions from "../store/places-actions";
-import ImagePicker from "../components/ImagePicker";
-import LocationPicker from "../components/LocationPicker";
+import Colors from '../constants/Colors';
+import * as placesActions from '../store/places-actions';
+import ImagePicker from '../components/ImagePicker';
+import LocationPicker from '../components/LocationPicker';
 
 const NewPlaceScreen = props => {
-  const [titleValue, setTitleValue] = useState("");
+  const [titleValue, setTitleValue] = useState('');
   const [selectedImage, setSelectedImage] = useState();
   const [selectedLocation, setSelectedLocation] = useState();
 
   const dispatch = useDispatch();
 
   const titleChangeHandler = text => {
+    // you could add validation
     setTitleValue(text);
   };
 
@@ -34,11 +35,10 @@ const NewPlaceScreen = props => {
   }, []);
 
   const savePlaceHandler = () => {
-    dispatch(
-      placesActions.addPlace(titleValue, selectedImage, selectedLocation)
-    );
+    dispatch(placesActions.addPlace(titleValue, selectedImage, selectedLocation));
     props.navigation.goBack();
   };
+
   return (
     <ScrollView>
       <View style={styles.form}>
@@ -64,7 +64,7 @@ const NewPlaceScreen = props => {
 };
 
 NewPlaceScreen.navigationOptions = {
-  headerTitle: "Add Place"
+  headerTitle: 'Add Place'
 };
 
 const styles = StyleSheet.create({
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   textInput: {
-    borderBottomColor: "#ccc",
+    borderBottomColor: '#ccc',
     borderBottomWidth: 1,
     marginBottom: 15,
     paddingVertical: 4,
